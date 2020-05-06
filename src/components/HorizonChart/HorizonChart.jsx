@@ -35,11 +35,13 @@ const HorizonChart = () => {
 						},
 						{
 							label: 'Recovered',
+							hidden: true,
 							backgroundColor: '#27ff39',
 							data: mostInfected.map(({ recovered }) => recovered.value)
 						},
 						{
 							label: 'Deaths',
+							hidden: true,
 							backgroundColor: '#ff2727',
 							data: mostInfected.map(({ deaths }) => deaths.value)
 						}
@@ -60,11 +62,13 @@ const HorizonChart = () => {
 						},
 						{
 							label: 'Confirmed',
+							hidden: true,
 							backgroundColor: '#2761ff',
 							data: mostRecovered.map(({ confirmed }) => confirmed.value)
 						},
 						{
 							label: 'Deaths',
+							hidden: true,
 							backgroundColor: '#ff2727',
 							data: mostRecovered.map(({ deaths }) => deaths.value)
 						}
@@ -85,11 +89,13 @@ const HorizonChart = () => {
 						},
 						{
 							label: 'Confirmed',
+							hidden: true,
 							backgroundColor: '#2761ff',
 							data: mostDeaths.map(({ confirmed }) => confirmed.value)
 						},
 						{
 							label: 'Recovered',
+							hidden: true,
 							backgroundColor: '#27ff39',
 							data: mostDeaths.map(({ recovered }) => recovered.value)
 						}
