@@ -1,0 +1,9 @@
+.container {
+	width: 80%;
+	height: 100%;
+}
+
+h4 {
+	text-align: center !important;
+	margin: 2em 0 .5em !important;
+}

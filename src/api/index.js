@@ -13,7 +13,7 @@ const fetchData = async (country) => {
 		const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get(changeableUrl);
 		return { confirmed, recovered, deaths, lastUpdate };
 	} catch (err) {
-		console.log(err);
+		return err;
 	}
 };
 
@@ -29,7 +29,7 @@ const fetchDailyData = async () => {
 
 		return modifiedData;
 	} catch (err) {
-		console.log(err);
+		return err;
 	}
 };
 
@@ -39,8 +39,28 @@ const fetchCountries = async () => {
 
 		return countries.map((country) => country.name);
 	} catch (err) {
-		console.log(err);
+		return err;
 	}
 };
 
-export { fetchData, fetchDailyData, fetchCountries };
+const fetchAllCountriesData = async () => {
+	try {
+		const { data: { countries } } = await axios.get(`${url}/countries`);
+
+		const filteredContries = countries
+			.map((country) => country.name)
+			.filter((country) => country.toLowerCase() !== 'gambia');
+
+		const allData = await Promise.all(
+			filteredContries.map((country) => axios.get(`https://covid19.mathdro.id/api/countries/${country}`))
+		);
+
+		return allData.map((data, i) => ({ ...data.data, name: filteredContries[i] }));
+	} catch (err) {
+		return err;
+	}
+};
+// sorting
+// (a, b) => b.confirmed.value - a.confirmed.value)
+
+export { fetchData, fetchDailyData, fetchCountries, fetchAllCountriesData };
