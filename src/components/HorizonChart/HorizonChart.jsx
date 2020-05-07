@@ -22,6 +22,7 @@ const HorizonChart = () => {
 	const mostDeaths =
 		allCountriesData.length && allCountriesData.sort((a, b) => b.deaths.value - a.deaths.value).slice(0, 10);
 
+	const emoji = 'GB'.toUpperCase().replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397));
 	const horizonBarChart = allCountriesData.length ? (
 		<div>
 			<Typography variant="h4" component="h4" color="textSecondary">
@@ -79,7 +80,7 @@ const HorizonChart = () => {
 				}}
 			/>
 			<Typography variant="h4" component="h4" color="textSecondary">
-				The Most Deaths Cases of COVID19
+				{emoji}The Most Deaths Cases of COVID19
 			</Typography>
 			<HorizontalBar
 				data={{
