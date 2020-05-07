@@ -1,9 +1,15 @@
 .container {
-	width: 80%;
-	height: 100%;
+	width: 85%;
+	justify-content: center;
 }
 
 h4 {
 	text-align: center !important;
 	margin: 2em 0 .5em !important;
+}
+
+@media (max-width: 770px) {
+	.container {
+		width: 100%;
+	}
 }

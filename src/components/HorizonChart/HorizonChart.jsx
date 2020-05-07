@@ -15,9 +15,12 @@ const HorizonChart = () => {
 		fetchAPI();
 	}, []);
 
-	const mostInfected = allCountriesData.sort((a, b) => b.confirmed.value - a.confirmed.value).slice(0, 10);
-	const mostRecovered = allCountriesData.sort((a, b) => b.recovered.value - a.recovered.value).slice(0, 10);
-	const mostDeaths = allCountriesData.sort((a, b) => b.deaths.value - a.deaths.value).slice(0, 10);
+	const mostInfected =
+		allCountriesData.length && allCountriesData.sort((a, b) => b.confirmed.value - a.confirmed.value).slice(0, 10);
+	const mostRecovered =
+		allCountriesData.length && allCountriesData.sort((a, b) => b.recovered.value - a.recovered.value).slice(0, 10);
+	const mostDeaths =
+		allCountriesData.length && allCountriesData.sort((a, b) => b.deaths.value - a.deaths.value).slice(0, 10);
 
 	const horizonBarChart = allCountriesData.length ? (
 		<div>
