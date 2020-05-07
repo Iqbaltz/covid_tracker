@@ -1,6 +1,5 @@
 .container {
 	width: 85%;
-	justify-content: center;
 }
 
 h4 {
@@ -11,5 +10,10 @@ h4 {
 @media (max-width: 770px) {
 	.container {
 		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	h4 {
+		font-size: 1em !important;
 	}
 }
